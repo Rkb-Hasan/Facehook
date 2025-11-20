@@ -10,6 +10,11 @@
   --color-lighterDark: #27292f;
 }
 
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
 @plugin "@tailwindcss/typography";
 
 @layer base {
@@ -29,12 +34,12 @@
 }
 
 @layer components {
-  /* .btn-primary {
-    @apply flex-center gap-2 rounded-md bg-lighterDark px-5 py-2.5 text-sm font-medium text-white hover:bg-deepDark lg:text-lg;
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 rounded-md bg-lighterDark px-5 py-2.5 text-sm font-medium text-white hover:bg-deepDark lg:text-lg;
   }
   .icon-btn {
-    @apply flex-center rounded-md bg-lighterDark  p-1.5  font-medium  text-white hover:bg-deepDark;
-  } */
+    @apply flex items-center justify-center rounded-md bg-lighterDark  p-1.5  font-medium  text-white hover:bg-deepDark;
+  }
 
   .form-control {
     @apply mb-6 space-y-2.5;
@@ -51,9 +56,9 @@
   }
 
   /* Action Modal */
-  /* .action-modal-container {
-    @apply card absolute right-full top-6 min-w-[200px] divide-y divide-[#3F3F3F] py-2 [&>button]:py-2;
-  } */
+  .action-modal-container {
+    @apply rounded-md border border-[#3F3F3F] bg-mediumDark px-4 py-4 lg:px-7 lg:py-5 absolute right-full top-6 min-w-[200px] divide-y divide-[#3F3F3F] py-2 [&>button]:py-2;
+  }
 
   .action-menu-item {
     @apply flex w-full items-center gap-2 text-gray-100 transition-all;
