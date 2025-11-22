@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import home from "../../assets/icons/home.svg";
-import logo from "../../assets/icons/logo.svg";
 import notification from "../../assets/icons/notification.svg";
 import avatar from "../../assets/images/avatars/avatar_1.png";
+import logo from "../../assets/images/logo.svg";
 import Logout from "../auth/Logout";
 
 export default function Header() {
