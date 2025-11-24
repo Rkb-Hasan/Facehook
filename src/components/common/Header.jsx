@@ -34,16 +34,18 @@ export default function Header() {
 
           <Logout />
 
-          <button className="flex-center ml-8 gap-3">
-            <span className="text-lg font-medium lg:text-xl">
-              {user?.firstName} {user?.lastName}
-            </span>
-            <img
-              className="max-h-8 max-w-8 lg:max-h-11 lg:max-w-11 rounded-full"
-              src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user?.avatar}`}
-              alt="avatar"
-            />
-          </button>
+          <Link to="/me">
+            <button className="flex-center ml-8 gap-3">
+              <span className="text-lg font-medium lg:text-xl">
+                {user?.firstName} {user?.lastName}
+              </span>
+              <img
+                className="max-h-8 max-w-8 lg:max-h-11 lg:max-w-11 rounded-full"
+                src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user?.avatar}`}
+                alt="avatar"
+              />
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
