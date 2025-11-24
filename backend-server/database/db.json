@@ -469,7 +469,7 @@
       "password": "$2b$08$t5Aar/0hgHTMdCeLtn3KhOlWDVIAHcFUTkRPeWASPhbYAea5kxKvW",
       "firstName": "Saad",
       "lastName": "Hasan",
-      "avatar": "uploads/avatar/avatar-1763982202017-858649210.png",
+      "avatar": "uploads/avatar/avatar-1763994907267-430038485.png",
       "email": "saadh392@mail.com",
       "bio": "testggggsadsds"
     },
@@ -522,6 +522,31 @@
       "lastName": "demo",
       "avatar": null,
       "email": "demo@email.com"
+    },
+    {
+      "id": "661e8243-6a61-457b-b4ed-6ccfe0fec29e",
+      "password": "$2b$08$nLiyq2Q/FufPK3S1qEfAyusdcb7x7W75tjr/s4U3toDuh6oSdfc/S",
+      "firstName": "rb",
+      "lastName": "hhsn",
+      "avatar": null,
+      "email": "rb@mail.com"
+    },
+    {
+      "id": "2070aa56-5fe4-4fd9-a2d9-8f9a7ec79a36",
+      "password": "$2b$08$aQ5TJiai3foctjel53t/Ne8FhUZLKfPTHOjeSel3oLusnoxwgBH4a",
+      "firstName": "rvvvs",
+      "lastName": "v",
+      "avatar": "uploads/avatar/avatar-1763999974621-20466405.jpg",
+      "email": "rbv@mail.com",
+      "bio": "saada"
+    },
+    {
+      "id": "ff6b45e0-5fad-4d92-883e-ce06f0469364",
+      "password": "$2b$08$qhabtqwlXfeDXJJoPihXXekTntFl6/bJ0GHmUS0eqBvP9OD0fBWFW",
+      "firstName": "ssdada",
+      "lastName": "asdasdas",
+      "avatar": null,
+      "email": "m5@mail.com"
     }
   ]
 }

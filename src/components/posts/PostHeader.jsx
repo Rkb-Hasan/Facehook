@@ -9,7 +9,7 @@ import { getDateDifferenceFromNow } from "../../utils";
 export default function PostHeader({ post }) {
   const [showAction, setShowAction] = useState(false);
   const { avatarUrl } = useAvatar(post);
-  console.log(post);
+
   return (
     <header className="flex items-center justify-between gap-4">
       <div className="flex items-center gap-3">

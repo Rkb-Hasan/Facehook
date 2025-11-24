@@ -19,6 +19,7 @@ export default function ProfileImage() {
       const formData = new FormData();
 
       for (const file of fileUploadRef.current.files) {
+        console.log(file);
         formData.append("avatar", file);
       }
 

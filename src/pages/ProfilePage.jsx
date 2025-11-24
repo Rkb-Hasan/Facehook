@@ -40,7 +40,7 @@ export default function ProfilePage() {
   if (state?.loading) {
     return <div>Fetching your Profile data....</div>;
   }
-
+  console.log(state);
   return (
     <>
       <ProfileInfo />
