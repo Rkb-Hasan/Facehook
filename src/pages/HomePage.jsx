@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { actions } from "../actions";
+import NewPost from "../components/posts/NewPost";
 import PostList from "../components/posts/PostList";
 import useAxios from "../hooks/useAxios";
 import { usePost } from "../hooks/usePost";
@@ -39,6 +40,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <NewPost />
       <PostList posts={state?.posts} />
     </div>
   );
