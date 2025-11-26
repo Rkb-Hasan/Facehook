@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { actions } from "../actions";
+import EditPost from "../components/posts/EditPost";
 import NewPost from "../components/posts/NewPost";
 import PostList from "../components/posts/PostList";
 import useAxios from "../hooks/useAxios";
 import { usePost } from "../hooks/usePost";
+import EditProvider from "../providers/EditProvider";
 
 export default function HomePage() {
   const { state, dispatch } = usePost();
@@ -40,8 +42,11 @@ export default function HomePage() {
 
   return (
     <div>
-      <NewPost />
-      <PostList posts={state?.posts} />
+      <EditProvider>
+        <NewPost />
+        <EditPost />
+        <PostList posts={state?.posts} />
+      </EditProvider>
     </div>
   );
 }

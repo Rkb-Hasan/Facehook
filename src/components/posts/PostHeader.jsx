@@ -7,6 +7,7 @@ import timeIcon from "../../assets/icons/time.svg";
 import { useAuth } from "../../hooks/useAuth";
 import { useAvatar } from "../../hooks/useAvatar";
 import useAxios from "../../hooks/useAxios";
+import { useEditPost } from "../../hooks/useEditPost";
 import { usePost } from "../../hooks/usePost";
 import { getDateDifferenceFromNow } from "../../utils";
 
@@ -17,6 +18,7 @@ export default function PostHeader({ post }) {
   const isMe = post?.author?.id === auth?.user?.id;
   const { dispatch } = usePost();
   const { api } = useAxios();
+  const { setEditPost } = useEditPost();
   const handleDeletePost = async () => {
     if (confirm("Are you sure?")) {
       dispatch({ type: actions.post.DATA_FETCHING });
@@ -63,7 +65,10 @@ export default function PostHeader({ post }) {
         )}
         {showAction && (
           <div className="action-modal-container">
-            <button className="action-menu-item hover:text-lwsGreen">
+            <button
+              onClick={() => setEditPost(post)}
+              className="action-menu-item hover:text-lwsGreen"
+            >
               <img src={editIcon} alt="Edit" />
               Edit
             </button>

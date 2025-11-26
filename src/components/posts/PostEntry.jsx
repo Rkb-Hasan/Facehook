@@ -7,12 +7,14 @@ import { usePost } from "../../hooks/usePost";
 import { useProfile } from "../../hooks/useProfile";
 import Field from "../common/Field";
 
-export default function PostEntry({ onCreate }) {
+export default function PostEntry({ onCreate, post, onEdit }) {
   const { auth } = useAuth();
   const { dispatch } = usePost();
   const { api } = useAxios();
   const { state: profile } = useProfile();
   const user = profile?.user ?? auth?.user;
+  const isEditMode = post?.id;
+
   const {
     register,
     handleSubmit,
@@ -41,13 +43,40 @@ export default function PostEntry({ onCreate }) {
     }
   };
 
+  const handleEditPost = async (formData) => {
+    console.log(formData);
+    dispatch({ type: actions.post.DATA_FETCHING });
+
+    try {
+      const response = await api.patch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}`,
+        formData
+      );
+
+      if (response.status === 200) {
+        dispatch({ type: actions.post.DATA_EDITED, data: post?.id });
+        // close this ui
+        onEdit();
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: actions.post.DATA_FETCH_ERROR, error: err?.message });
+    }
+  };
+
   return (
     <div className="card relative">
       <h6 className="mb-3 text-center text-lg font-bold lg:text-xl">
         Create Post
       </h6>
 
-      <form onSubmit={handleSubmit(handlePostSubmit)}>
+      <form
+        onSubmit={
+          isEditMode
+            ? handleSubmit(handleEditPost)
+            : handleSubmit(handlePostSubmit)
+        }
+      >
         <div className="mb-3 flex items-center justify-between gap-2 lg:mb-6 lg:gap-4">
           <div className="flex items-center gap-3">
             <img
@@ -83,6 +112,7 @@ export default function PostEntry({ onCreate }) {
             id="content"
             placeholder="Share your thoughts..."
             className="h-[120px] w-full bg-transparent focus:outline-none lg:h-40"
+            defaultValue={post?.content}
           ></textarea>
         </Field>
 
