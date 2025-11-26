@@ -13,7 +13,7 @@ export default function PostEntry({ onCreate, post, onEdit }) {
   const { api } = useAxios();
   const { state: profile } = useProfile();
   const user = profile?.user ?? auth?.user;
-  const isEditMode = post?.id;
+  const isEditMode = !!post?.id;
 
   const {
     register,
@@ -24,12 +24,21 @@ export default function PostEntry({ onCreate, post, onEdit }) {
 
   const handlePostSubmit = async (formData) => {
     console.log(formData);
+    const data = new FormData();
+
+    if (formData.image.length > 0) {
+      console.log(formData.image[0]);
+      data.append("image", formData.image[0], "ad");
+      data.append("postType", "image");
+    }
+
+    data.append("content", formData.content);
     dispatch({ type: actions.post.DATA_FETCHING });
 
     try {
       const response = await api.post(
         `${import.meta.env.VITE_SERVER_BASE_URL}/posts`,
-        formData
+        data
       );
 
       if (response.status === 200) {
@@ -50,11 +59,14 @@ export default function PostEntry({ onCreate, post, onEdit }) {
     try {
       const response = await api.patch(
         `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}`,
-        formData
+        { content: formData.content }
       );
-
+      console.log(response.data);
       if (response.status === 200) {
-        dispatch({ type: actions.post.DATA_EDITED, data: post?.id });
+        dispatch({
+          type: actions.post.DATA_EDITED,
+          data: response.data,
+        });
         // close this ui
         onEdit();
       }
@@ -67,7 +79,7 @@ export default function PostEntry({ onCreate, post, onEdit }) {
   return (
     <div className="card relative">
       <h6 className="mb-3 text-center text-lg font-bold lg:text-xl">
-        Create Post
+        {isEditMode ? "Edit Post" : "Create Post"}
       </h6>
 
       <form
@@ -93,14 +105,15 @@ export default function PostEntry({ onCreate, post, onEdit }) {
             </div>
           </div>
 
-          <label
-            className="btn-primary cursor-pointer text-gray-100"
-            htmlFor="photo"
-          >
-            <img src={addPhotoIcon} alt="Add Photo" />
-            Add Photo
-          </label>
-          <input type="file" name="photo" id="photo" className="hidden" />
+          <Field label="Add Photo" img={addPhotoIcon} error={errors.image}>
+            <input
+              {...register("image")}
+              type="file"
+              name="image"
+              id="image"
+              hidden
+            />
+          </Field>
         </div>
 
         {/* Post Text Input  */}
