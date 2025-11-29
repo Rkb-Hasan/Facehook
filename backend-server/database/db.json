@@ -340,7 +340,7 @@
     },
     {
       "id": "fabefae7-c26d-4c5b-b4e4-7c150c3cbfb4",
-      "content": "",
+      "content": "hello",
       "image": null,
       "postType": "text",
       "author": {
@@ -404,7 +404,9 @@
         "avatar": "uploads/avatar/avatar-1708789609571-36760872.jpeg"
       },
       "comments": [],
-      "likes": [],
+      "likes": [
+        "6fd3ed42-2275-4d5f-a436-e5a3bf586c56"
+      ],
       "createAt": "2024-02-25T06:57:46.023Z"
     },
     {
@@ -445,7 +447,9 @@
         "avatar": "uploads/avatar/avatar-1708789609571-36760872.jpeg"
       },
       "comments": [],
-      "likes": [],
+      "likes": [
+        "6fd3ed42-2275-4d5f-a436-e5a3bf586c56"
+      ],
       "createAt": "2024-02-25T07:01:10.425Z"
     },
     {
@@ -487,7 +491,9 @@
         "avatar": "uploads/avatar/avatar-1763994907267-430038485.png"
       },
       "comments": [],
-      "likes": [],
+      "likes": [
+        "6fd3ed42-2275-4d5f-a436-e5a3bf586c56"
+      ],
       "createAt": "2025-11-26T15:36:38.596Z"
     },
     {

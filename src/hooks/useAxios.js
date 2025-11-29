@@ -37,7 +37,6 @@ const useAxios = () => {
             );
 
             const { token } = response.data;
-            console.log(`nw token from hook ${token}`);
             setAuth({ ...auth, authToken: token });
             originalRequest.headers.Authorization = `Bearer ${token}`;
 

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { actions } from "../actions";
+import EditPost from "../components/posts/EditPost";
 import MyPosts from "../components/profile/MyPosts";
 import ProfileInfo from "../components/profile/ProfileInfo";
 import { useAuth } from "../hooks/useAuth";
@@ -35,15 +36,16 @@ export default function ProfilePage() {
       }
     };
     fetchProfile();
-  }, []);
+  }, [auth?.user?.id, dispatch, api]);
 
   if (state?.loading) {
     return <div>Fetching your Profile data....</div>;
   }
-  console.log(state);
+
   return (
     <>
       <ProfileInfo />
+      <EditPost />
       <MyPosts />
     </>
   );

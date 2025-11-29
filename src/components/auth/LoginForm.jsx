@@ -16,14 +16,12 @@ export default function LoginForm() {
   const { setAuth } = useAuth();
 
   const submitForm = async (formData) => {
-    // console.log(formData);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`,
         formData
       );
 
-      // console.log(response);
       if (response.status === 200) {
         const { token, user } = response.data;
         if (token) {

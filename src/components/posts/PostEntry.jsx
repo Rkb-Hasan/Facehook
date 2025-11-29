@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { actions } from "../../actions";
 import addPhotoIcon from "../../assets/icons/addPhoto.svg";
@@ -14,20 +15,19 @@ export default function PostEntry({ onCreate, post, onEdit }) {
   const { state: profile } = useProfile();
   const user = profile?.user ?? auth?.user;
   const isEditMode = !!post?.id;
-
+  const editRef = useRef();
+  const previewRef = useRef();
+  const iImg = useRef();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
   } = useForm();
 
   const handlePostSubmit = async (formData) => {
-    console.log(formData);
     const data = new FormData();
 
     if (formData.image.length > 0) {
-      console.log(formData.image[0]);
       data.append("image", formData.image[0], "ad");
       data.append("postType", "image");
     }
@@ -76,8 +76,33 @@ export default function PostEntry({ onCreate, post, onEdit }) {
     }
   };
 
+  useEffect(() => {
+    if (editRef.current) {
+      editRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (previewRef.current) {
+      if (post && post?.image) {
+        previewRef.current.classList.remove("hidden");
+        previewRef.current.children[0].src = `${
+          import.meta.env.VITE_SERVER_BASE_URL
+        }/${post.image}`;
+      }
+      if (iImg.current) {
+        iImg.current.addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          const imageUrl = URL.createObjectURL(file);
+          previewRef.current.classList.remove("hidden");
+          previewRef.current.children[0].src = imageUrl;
+        });
+      }
+    }
+  }, [post]);
+
   return (
-    <div className="card relative">
+    <div ref={editRef} className="card relative">
       <h6 className="mb-3 text-center text-lg font-bold lg:text-xl">
         {isEditMode ? "Edit Post" : "Create Post"}
       </h6>
@@ -112,6 +137,7 @@ export default function PostEntry({ onCreate, post, onEdit }) {
               name="image"
               id="image"
               hidden
+              ref={iImg}
             />
           </Field>
         </div>
@@ -124,10 +150,17 @@ export default function PostEntry({ onCreate, post, onEdit }) {
             name="content"
             id="content"
             placeholder="Share your thoughts..."
-            className="h-[120px] w-full bg-transparent focus:outline-none lg:h-40"
+            className="h-30 w-full bg-transparent focus:outline-none "
             defaultValue={post?.content}
           ></textarea>
         </Field>
+
+        <div
+          ref={previewRef}
+          className="w-1/3 mx-auto mb-8 border-green-500 border-2 hidden"
+        >
+          <img />
+        </div>
 
         <div className="border-t border-[#3F3F3F] pt-4 lg:pt-6">
           <button

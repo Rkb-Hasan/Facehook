@@ -7,7 +7,11 @@ export default function EditPost() {
   return (
     <div className="mt-3">
       {editPost?.id && (
-        <PostEntry onEdit={() => setEditPost({})} post={editPost} />
+        <PostEntry
+          key={editPost?.id}
+          onEdit={() => setEditPost({})}
+          post={editPost}
+        />
       )}
     </div>
   );
