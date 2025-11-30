@@ -498,7 +498,7 @@
     },
     {
       "id": "d2bd2427-07a1-4872-a6e0-68a1b40e6e3b",
-      "content": "test edit again",
+      "content": "test ee",
       "image": null,
       "postType": "text",
       "author": {
@@ -506,26 +506,23 @@
         "name": "Saad Hasan",
         "avatar": "uploads/avatar/avatar-1763994907267-430038485.png"
       },
-      "comments": [],
+      "comments": [
+        {
+          "id": "77a3a13a-6700-4130-bad4-cea53bc7bab1",
+          "comment": "hi",
+          "createdAt": "2025-11-30T15:10:28.385Z",
+          "author": {
+            "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+            "name": "Saad Hasan",
+            "avatar": "uploads/avatar/avatar-1764506405881-499548626.jpg"
+          }
+        }
+      ],
       "likes": [],
       "createAt": "2025-11-26T15:37:01.377Z",
       "photo": {
         "0": {}
       }
-    },
-    {
-      "id": "b78ba551-57b1-4f94-a047-b8d7a32a5742",
-      "content": "testttttttttttttt",
-      "image": "uploads/posts/image-1764183410964-262506524.ad",
-      "postType": "image",
-      "author": {
-        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
-        "name": "Saad Hasan",
-        "avatar": "uploads/avatar/avatar-1764179671050-453585473.jpg"
-      },
-      "comments": [],
-      "likes": [],
-      "createAt": "2025-11-26T18:56:50.987Z"
     }
   ],
   "comments": [],
@@ -535,7 +532,7 @@
       "password": "$2b$08$t5Aar/0hgHTMdCeLtn3KhOlWDVIAHcFUTkRPeWASPhbYAea5kxKvW",
       "firstName": "Saad",
       "lastName": "Hasan",
-      "avatar": "uploads/avatar/avatar-1764303128235-745172792.png",
+      "avatar": "uploads/avatar/avatar-1764506405881-499548626.jpg",
       "email": "saadh392@mail.com",
       "bio": "testggggsadsds"
     },
@@ -613,6 +610,15 @@
       "lastName": "asdasdas",
       "avatar": null,
       "email": "m5@mail.com"
+    },
+    {
+      "id": "2c8cf63d-2559-4928-bed8-0445254daf7c",
+      "password": "$2b$08$Dw0JWAHO2aJF5v34G7y5h.yB3JYP3WTPDgQiEgOtm8MjQyZu0SO7u",
+      "firstName": "MD ",
+      "lastName": "Rkib",
+      "avatar": "uploads/avatar/avatar-1764434115103-128417429.jpg",
+      "email": "me@gmail.com",
+      "bio": "Hi i am new"
     }
   ]
 }

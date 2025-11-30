@@ -6,10 +6,8 @@ export const useAvatar = (post) => {
   const { auth } = useAuth();
   const isMe = post?.author?.id === auth?.user?.id;
 
-  const avatarFromAuth = isMe
-    ? `${auth?.user?.avatar}`
-    : `${post?.author?.avatar}`;
-  const updatedAvatar = state?.user?.avatar ?? avatarFromAuth;
+  const myAvatar = state?.user?.avatar ?? auth?.user?.avatar;
+  const updatedAvatar = isMe ? myAvatar : post?.author?.avatar;
   const avatarUrl = `${import.meta.env.VITE_SERVER_BASE_URL}/${updatedAvatar}`;
   return { avatarUrl };
 };

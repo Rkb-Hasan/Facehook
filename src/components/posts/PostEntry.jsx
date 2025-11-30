@@ -11,8 +11,9 @@ import Field from "../common/Field";
 export default function PostEntry({ onCreate, post, onEdit }) {
   const { auth } = useAuth();
   const { dispatch } = usePost();
+
   const { api } = useAxios();
-  const { state: profile } = useProfile();
+  const { state: profile, dispatch: profileDispatch } = useProfile();
   const user = profile?.user ?? auth?.user;
   const isEditMode = !!post?.id;
   const editRef = useRef();
@@ -24,11 +25,13 @@ export default function PostEntry({ onCreate, post, onEdit }) {
     formState: { errors },
   } = useForm();
 
+  const { ref: imageRef, ...imageRegisterProps } = register("image");
+
   const handlePostSubmit = async (formData) => {
     const data = new FormData();
 
-    if (formData.image.length > 0) {
-      data.append("image", formData.image[0], "ad");
+    if (iImg.current && iImg.current.files.length > 0) {
+      data.append("image", iImg.current.files[0], "file");
       data.append("postType", "image");
     }
 
@@ -53,7 +56,6 @@ export default function PostEntry({ onCreate, post, onEdit }) {
   };
 
   const handleEditPost = async (formData) => {
-    console.log(formData);
     dispatch({ type: actions.post.DATA_FETCHING });
 
     try {
@@ -61,12 +63,17 @@ export default function PostEntry({ onCreate, post, onEdit }) {
         `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}`,
         { content: formData.content }
       );
-      console.log(response.data);
+
       if (response.status === 200) {
         dispatch({
           type: actions.post.DATA_EDITED,
           data: response.data,
         });
+        profileDispatch({
+          type: actions.profile.USER_POST_EDITED,
+          data: response.data,
+        });
+
         // close this ui
         onEdit();
       }
@@ -83,6 +90,13 @@ export default function PostEntry({ onCreate, post, onEdit }) {
   }, []);
 
   useEffect(() => {
+    const handler = function (event) {
+      const file = event.target.files[0];
+      const imageUrl = URL.createObjectURL(file);
+      previewRef.current.classList.remove("hidden");
+      previewRef.current.children[0].src = imageUrl;
+    };
+
     if (previewRef.current) {
       if (post && post?.image) {
         previewRef.current.classList.remove("hidden");
@@ -90,15 +104,17 @@ export default function PostEntry({ onCreate, post, onEdit }) {
           import.meta.env.VITE_SERVER_BASE_URL
         }/${post.image}`;
       }
+
       if (iImg.current) {
-        iImg.current.addEventListener("change", function (event) {
-          const file = event.target.files[0];
-          const imageUrl = URL.createObjectURL(file);
-          previewRef.current.classList.remove("hidden");
-          previewRef.current.children[0].src = imageUrl;
-        });
+        iImg.current.addEventListener("change", handler);
       }
     }
+
+    return () => {
+      if (iImg.current) {
+        iImg.current.removeEventListener("change", handler);
+      }
+    };
   }, [post]);
 
   return (
@@ -132,12 +148,15 @@ export default function PostEntry({ onCreate, post, onEdit }) {
 
           <Field label="Add Photo" img={addPhotoIcon} error={errors.image}>
             <input
-              {...register("image")}
+              {...imageRegisterProps}
               type="file"
               name="image"
               id="image"
               hidden
-              ref={iImg}
+              ref={(el) => {
+                imageRef(el);
+                iImg.current = el;
+              }}
             />
           </Field>
         </div>

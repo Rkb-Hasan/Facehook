@@ -12,6 +12,7 @@ const ProfileReducer = (state, action) => {
     case actions.profile.DATA_FETCHING: {
       return { ...state, loading: true };
     }
+
     case actions.profile.DATA_FETCHED: {
       return {
         ...state,
@@ -35,6 +36,17 @@ const ProfileReducer = (state, action) => {
         user: action.data,
       };
     }
+
+    case actions.profile.USER_POST_EDITED: {
+      return {
+        ...state,
+        loading: false,
+        posts: state.posts.map((post) =>
+          post.id === action.data.id ? action.data : post
+        ),
+      };
+    }
+
     case actions.profile.IMAGE_UPDATED: {
       return {
         ...state,
