@@ -2,6 +2,10 @@
 
 A simple social media style front end built with React. It connects to a provided backend API and implements authentication, routing, profile management, and post interactions.
 
+## Live Demo
+
+[Visit FaceHook Live](https://facehook-mocha.vercel.app)
+
 ## Features
 
 - User login and registration
