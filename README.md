@@ -1,16 +1,47 @@
-# React + Vite
+# FaceHook Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple social media style front end built with React. It connects to a provided backend API and implements authentication, routing, profile management, and post interactions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User login and registration
+- JWT token and refresh token flow
+- Protected routes with React Router
+- Axios for API calls
+- React Context API and Reducers for state
+- React Hook Form for validation
+- Tailwind CSS UI
+- Create edit delete posts
+- Like and comment on posts
+- Update profile bio and profile image
+- Logout and token persistence
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- React Router DOM
+- Context API and Reducer
+- Axios
+- JWT with refresh token
+- React Hook Form
+- Tailwind CSS
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User logs in
+- Server returns access and refresh tokens
+- Axios attaches tokens to all API requests
+- When access token expires refresh token is used
+- Protected pages require a valid token
+- Users can post edit profile like comment and update their profile
+
+## Setup
+
+1. Install packages  
+   npm install
+2. Start the app  
+   npm run dev
+
+## Note
+
+Backend was not built in this project. All features are implemented using an external API.
