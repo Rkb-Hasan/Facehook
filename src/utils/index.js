@@ -58,3 +58,6 @@ export const getDateDifferenceFromNow = (fromDate) => {
 export const sortByDate = (a, b) => {
   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
 };
+export const sortPostsByDate = (a, b) => {
+  return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+};

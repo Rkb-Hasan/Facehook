@@ -537,18 +537,39 @@
       }
     },
     {
-      "id": "2f07c392-3e12-4560-afd3-7c4e358cbb9d",
-      "content": "SDADasdasaasdasdasdasdasdasd",
-      "image": "uploads/posts/image-1764581760860-439550680.file",
+      "id": "91aad729-914c-41db-91c5-36465f6a312c",
+      "content": "test",
+      "image": "uploads/posts/image-1764582321313-61894033.file",
       "postType": "image",
       "author": {
         "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
         "name": "Rkib Hsn",
         "avatar": "uploads/avatar/avatar-1764520282282-976128416.png"
       },
-      "comments": [],
+      "comments": [
+        {
+          "id": "c753f448-c3f1-4de2-9eda-37ca0e440da8",
+          "comment": "hii",
+          "createdAt": "2025-12-01T09:45:57.840Z",
+          "author": {
+            "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
+            "name": "Rkib Hsn",
+            "avatar": "uploads/avatar/avatar-1764520282282-976128416.png"
+          }
+        },
+        {
+          "id": "cd9ffb1a-39b9-4963-b5cf-c39207b80050",
+          "comment": "me",
+          "createdAt": "2025-12-01T09:46:00.587Z",
+          "author": {
+            "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
+            "name": "Rkib Hsn",
+            "avatar": "uploads/avatar/avatar-1764520282282-976128416.png"
+          }
+        }
+      ],
       "likes": [],
-      "createAt": "2025-12-01T09:36:00.878Z"
+      "createAt": "2025-12-01T09:45:21.331Z"
     }
   ],
   "comments": [],
@@ -651,7 +672,7 @@
       "password": "$2b$08$L7p5mTmA6E.XGR.fSKYsmOFmPgyy3Fu/8gKoLbhww0tBJxocD5hL.",
       "firstName": "Rkib",
       "lastName": "Hsn",
-      "avatar": "uploads/avatar/avatar-1764520282282-976128416.png",
+      "avatar": "uploads/avatar/avatar-1764582399193-736526523.png",
       "email": "test@test.com",
       "bio": "Hiii"
     }

@@ -1,10 +1,10 @@
-import { sortByDate } from "../../utils";
+import { sortPostsByDate } from "../../utils";
 import PostCard from "./PostCard";
 
 export default function PostList({ posts }) {
   return (
     !!posts &&
-    posts.sort(sortByDate).map((post) => {
+    posts.sort(sortPostsByDate).map((post) => {
       return <PostCard key={post.id} post={post} />;
     })
   );
