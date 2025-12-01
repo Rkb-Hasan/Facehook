@@ -4,7 +4,7 @@ export default function PostCommentList({ comments }) {
   }
 
   return (
-    <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
+    <div className="md:space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
       {!!comments &&
         comments.sort(sortingComments).map((comment) => {
           return (

@@ -138,7 +138,7 @@ export default function PostEntry({ onCreate, post, onEdit }) {
               alt="avatar"
             />
             <div>
-              <h6 className="text-lg lg:text-xl">
+              <h6 className="sm:text-lg lg:text-xl">
                 {user?.firsName} {user?.lastName}
               </h6>
 
@@ -169,14 +169,14 @@ export default function PostEntry({ onCreate, post, onEdit }) {
             name="content"
             id="content"
             placeholder="Share your thoughts..."
-            className="h-30 w-full bg-transparent focus:outline-none "
+            className=" h-15 text-sm md:text-base md:h-30 w-full bg-transparent focus:outline-none "
             defaultValue={post?.content}
           ></textarea>
         </Field>
 
         <div
           ref={previewRef}
-          className="w-1/3 mx-auto mb-8 border-green-500 border-2 hidden"
+          className="  md:w-1/3  mx-auto mb-8 border-green-500 border-2 hidden"
         >
           <img />
         </div>

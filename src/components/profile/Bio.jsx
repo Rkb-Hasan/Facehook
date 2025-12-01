@@ -36,7 +36,7 @@ export default function Bio() {
   };
 
   return (
-    <div className="mt-4 flex items-start gap-2 lg:mt-6">
+    <div className=" max-w-full   mt-4 flex items-start gap-2 lg:mt-6">
       <div className="flex-1">
         {!editMode ? (
           <p className="leading-[188%] text-gray-400 lg:text-lg">
@@ -44,10 +44,8 @@ export default function Bio() {
           </p>
         ) : (
           <textarea
-            className="p-2 leading-[188%] bg-gray-400 text-gray-800 lg:text-lg rounded-md"
+            className="p-2 min-w-full leading-[188%] border-2 border-green-500 text-white lg:text-lg rounded-md focus:outline-none"
             value={bio}
-            rows={4}
-            cols={55}
             onChange={(e) => setBio(e.target.value)}
           />
         )}

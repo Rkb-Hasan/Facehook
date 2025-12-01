@@ -33,7 +33,7 @@ export default function PostAction({ post, commentCount }) {
         className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm"
       >
         <img
-          className={`w-6 ${liked ? "invert-100" : ""}`}
+          className={`w-5 md:w-6 ${liked ? "invert-100" : ""}`}
           src={liked ? likeIconFilled : likeIcon}
           alt="Like"
         />
@@ -41,12 +41,12 @@ export default function PostAction({ post, commentCount }) {
       </button>
 
       <button className="icon-btn space-x-2 px-6 py-3 text-xs lg:px-12 lg:text-sm">
-        <img src={commentIcon} alt="Comment" />
+        <img className="w-5 md:w-6" src={commentIcon} alt="Comment" />
         <span>Comment({commentCount})</span>
       </button>
 
       <button className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm">
-        <img src={shareIcon} alt="Share" />
+        <img className="w-5 md:w-6" src={shareIcon} alt="Share" />
         <span>Share</span>
       </button>
     </div>

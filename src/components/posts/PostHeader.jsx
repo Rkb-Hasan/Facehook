@@ -47,10 +47,12 @@ export default function PostHeader({ post }) {
           alt="avatar"
         />
         <div>
-          <h6 className="text-lg lg:text-xl">{post?.author?.name}</h6>
+          <h6 className="text-sm md:text-lg lg:text-xl">
+            {post?.author?.name}
+          </h6>
           <div className="flex items-center gap-1.5">
             <img src={timeIcon} />
-            <span className="text-sm text-gray-400 lg:text-base">
+            <span className="text-[12px] md:text-sm text-gray-400 lg:text-base">
               {getDateDifferenceFromNow(post?.createAt)} ago
             </span>
           </div>
@@ -64,7 +66,7 @@ export default function PostHeader({ post }) {
           </button>
         )}
         {showAction && (
-          <div className="action-modal-container">
+          <div className="action-modal-container text-xs md:text-base">
             <button
               onClick={() => setEditPost(post)}
               className="action-menu-item hover:text-lwsGreen"

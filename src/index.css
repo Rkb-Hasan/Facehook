@@ -29,23 +29,23 @@
   }
 
   .card {
-    @apply rounded-md border border-[#3F3F3F] bg-mediumDark px-4 py-4 lg:px-7 lg:py-5;
+    @apply rounded-md border border-[#3F3F3F] bg-mediumDark px-2 py-2 sm:px-4 sm:py-4 lg:px-7 lg:py-5;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply flex items-center justify-center gap-2 rounded-md bg-lighterDark px-5 py-2.5 text-sm font-medium text-white hover:bg-deepDark lg:text-lg;
+    @apply flex items-center justify-center rounded-md    font-medium text-white hover:bg-deepDark;
   }
   .icon-btn {
-    @apply flex items-center justify-center rounded-md bg-lighterDark  p-1.5  font-medium  text-white hover:bg-deepDark;
+    @apply flex items-center justify-center rounded-md  font-medium  text-white;
   }
 
   .form-control {
     @apply mb-6 space-y-2.5;
   }
   .auth-label {
-    @apply leading-[138%] lg:text-lg;
+    @apply leading-[138%]  lg:text-lg;
   }
   .auth-input {
     @apply w-full rounded-md border border-[#CCCCCC]/[14%] bg-lighterDark  p-1.5 focus:outline-none lg:p-3;
@@ -57,7 +57,7 @@
 
   /* Action Modal */
   .action-modal-container {
-    @apply rounded-md border border-[#3F3F3F] bg-mediumDark px-4 py-4 lg:px-7 lg:py-5 absolute right-full top-6 min-w-[200px] divide-y divide-[#3F3F3F] py-2 [&>button]:py-2;
+    @apply rounded-md border border-[#3F3F3F] bg-mediumDark px-2  lg:px-4 lg:py-5 absolute right-full top-6 min-w-[130px] md:min-w-[200px] divide-y divide-[#3F3F3F] py-2 [&>button]:py-2;
   }
 
   .action-menu-item {

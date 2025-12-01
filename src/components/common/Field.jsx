@@ -5,8 +5,13 @@ export default function Field({ label, children, htmlFor, error, img }) {
   return (
     <div className="form-control">
       {label && (
-        <label htmlFor={id} className={`auth-label ${img && "flex gap-1"}`}>
-          {label} {img && <img src={img} alt={label} />}
+        <label
+          htmlFor={id}
+          className={`auth-label text-[14px] md:text-base ${
+            img && "flex gap-1"
+          }`}
+        >
+          {label} {img && <img className="w-5 md:w-7" src={img} alt={label} />}
         </label>
       )}
       {children}

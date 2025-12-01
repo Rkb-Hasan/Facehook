@@ -16,7 +16,9 @@ export default function ProfileInfo() {
         <p className="leading-[231%] lg:text-lg">{state?.user?.email}</p>
       </div>
 
-      <Bio />
+      <div className="w-full">
+        <Bio />
+      </div>
 
       <div className="w-3/4 border-b border-[#3F3F3F] py-6 lg:py-8"></div>
     </div>
