@@ -1,12 +1,10 @@
-export default function PostCommentList({ comments }) {
-  function sortingComments(a, b) {
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-  }
+import { sortByDate } from "../../utils";
 
+export default function PostCommentList({ comments }) {
   return (
     <div className="md:space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
       {!!comments &&
-        comments.sort(sortingComments).map((comment) => {
+        comments.sort(sortByDate).map((comment) => {
           return (
             <div
               key={comment.createdAt}

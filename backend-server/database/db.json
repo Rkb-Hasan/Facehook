@@ -537,45 +537,18 @@
       }
     },
     {
-      "id": "d9a6e143-6f2a-4ca0-9c2a-f45eadeb28ab",
-      "content": "Helllo",
-      "image": "uploads/posts/image-1764520175906-287180635.file",
+      "id": "2f07c392-3e12-4560-afd3-7c4e358cbb9d",
+      "content": "SDADasdasaasdasdasdasdasdasd",
+      "image": "uploads/posts/image-1764581760860-439550680.file",
       "postType": "image",
       "author": {
         "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
         "name": "Rkib Hsn",
-        "avatar": "uploads/avatar/avatar-1764516283793-624802553.png"
+        "avatar": "uploads/avatar/avatar-1764520282282-976128416.png"
       },
       "comments": [],
       "likes": [],
-      "createAt": "2025-11-30T16:29:35.916Z"
-    },
-    {
-      "id": "68269bda-da66-41b0-9451-55f93f78f732",
-      "content": "hiii",
-      "image": "uploads/posts/image-1764520254209-917494918.file",
-      "postType": "image",
-      "author": {
-        "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
-        "name": "Rkib Hsn",
-        "avatar": "uploads/avatar/avatar-1764516283793-624802553.png"
-      },
-      "comments": [
-        {
-          "id": "ba225a07-5bb4-4c2b-b243-ab290c67e163",
-          "comment": "me",
-          "createdAt": "2025-11-30T16:33:16.716Z",
-          "author": {
-            "id": "77625b55-98ed-427e-ad95-e8e26c8bdfb0",
-            "name": "Rkib Hsn",
-            "avatar": "uploads/avatar/avatar-1764520282282-976128416.png"
-          }
-        }
-      ],
-      "likes": [
-        "77625b55-98ed-427e-ad95-e8e26c8bdfb0"
-      ],
-      "createAt": "2025-11-30T16:30:54.222Z"
+      "createAt": "2025-12-01T09:36:00.878Z"
     }
   ],
   "comments": [],

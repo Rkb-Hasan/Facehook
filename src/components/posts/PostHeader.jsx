@@ -9,6 +9,7 @@ import { useAvatar } from "../../hooks/useAvatar";
 import useAxios from "../../hooks/useAxios";
 import { useEditPost } from "../../hooks/useEditPost";
 import { usePost } from "../../hooks/usePost";
+import { useProfile } from "../../hooks/useProfile";
 import { getDateDifferenceFromNow } from "../../utils";
 
 export default function PostHeader({ post }) {
@@ -17,6 +18,7 @@ export default function PostHeader({ post }) {
   const { auth } = useAuth();
   const isMe = post?.author?.id === auth?.user?.id;
   const { dispatch } = usePost();
+  const { dispatch: profileDispatch } = useProfile();
   const { api } = useAxios();
   const { setEditPost } = useEditPost();
   const handleDeletePost = async () => {
@@ -30,6 +32,10 @@ export default function PostHeader({ post }) {
 
         if (response.status === 200) {
           dispatch({ type: actions.post.DATA_DELETED, data: post?.id });
+          profileDispatch({
+            type: actions.profile.USER_POST_DELETED,
+            data: post?.id,
+          });
         }
       } catch (err) {
         console.log(err);

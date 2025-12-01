@@ -47,6 +47,14 @@ const ProfileReducer = (state, action) => {
       };
     }
 
+    case actions.profile.USER_POST_DELETED: {
+      return {
+        ...state,
+        loading: false,
+        posts: state.posts.filter((post) => post.id !== action.data),
+      };
+    }
+
     case actions.profile.IMAGE_UPDATED: {
       return {
         ...state,
